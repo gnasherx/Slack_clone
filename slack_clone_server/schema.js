@@ -2,15 +2,16 @@ export default `
 
   type Team {
     owner: User!
-    members: [User]!
-    channels: [Channel]!
+    members: [User!]!
+    channels: [Channel!]!
   }
 
   type Channel {
     id: Int!
     name: String!
+    public: Boolean
     messages: [Message!]!
-    team: Team
+    user: [User!]!
   }
 
   type Message {
@@ -24,10 +25,11 @@ export default `
     id: Int!
     username: String!
     email: String!
-    teams: [Teams!]!
+    teams: [Team!]!
   }
 
   type Query {
       hi: String
   }
+
 `;

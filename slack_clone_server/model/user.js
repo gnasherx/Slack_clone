@@ -18,7 +18,7 @@ export default (sequelize, DataTypes) => {
                 name: 'userId',
                 field: 'user_id'
             }
-        });
+        })
         // N:M
         User.belongsToMany(models.Team, {
             through: 'channel_member',
