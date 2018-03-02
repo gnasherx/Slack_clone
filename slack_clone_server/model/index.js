@@ -1,24 +1,23 @@
-import Sequelize from 'sequelize'
+import Sequelize from 'sequelize';
 
-const sequelize = new Sequelize('slack', 'postgress', 'postgress', {
-    dialect: 'postgres'
-}) //..Database name, Username, Password
+const sequelize = new Sequelize('slack', 'postgres', 'sejal1997', {
+    dialect: 'postgres',
+});
 
-// Database object
 const models = {
-    user: sequelize.import('./users'),
-    channel: sequelize.import('./channel'),
-    message: sequelize.import('./member.js'),
-    team: sequelize.import('./team.js')
-}
+    User: sequelize.import('./user'),
+    Channel: sequelize.import('./channel'),
+    Message: sequelize.import('./message'),
+    Team: sequelize.import('./team'),
+};
 
 Object.keys(models).forEach((modelName) => {
-    if ('associate' in db[modelName]) {
-        models[modelName].associate(models)
+    if ('associate' in models[modelName]) {
+        models[modelName].associate(models);
     }
-})
+});
 
-models.sequelize = sequelize
-models.Sequelize = Sequelize
+models.sequelize = sequelize;
+models.Sequelize = Sequelize;
 
-export default models
+export default models;
