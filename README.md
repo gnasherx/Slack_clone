@@ -1,4 +1,7 @@
 #Slack_clone_server
--> postgreSQL
--> GraphQL
--> sequelize library
+
+postgreSQL
+
+GraphQL
+
+sequelize library
