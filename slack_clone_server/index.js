@@ -19,7 +19,14 @@ const schema = makeExecutableSchema({
 
 const app = express()
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }))
+app.use('/graphql', bodyParser.json(), graphqlExpress({
+    schema, context: {
+        models,
+        user: {
+            id: 1
+        }
+    }
+}))
 app.use('/graphiql', graphiqlExpress({ endpointURL: './graphql' }))
 
 models.sequelize.sync().then(() => {
